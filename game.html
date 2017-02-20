@@ -1,0 +1,52 @@
+<canvas id= "ctx" width ="500" height="500" style="border:1px solid #000000;"></canvas>
+
+<script>
+//ctx represents the canvas we made in html5 and we use it to draw the things in the javascript here
+
+var ctx = document.getElementById("ctx").getContext("2d");
+
+//1. Modify the settings of the canvas
+
+ctx.font = '30px Arial';
+
+var x = 50;
+var spdX = 30;
+var y = 40;
+var spdY = 5;
+var message = 'Bouncing';
+ctx.fillText('P',x,50);
+
+
+setInterval(update,50);
+
+
+function update (){
+	//code which we want to repeat
+	x += spdX;
+	y += spdY;
+	ctx.fillText('P',x,y);
+
+	if(x>500){
+		console.log(message);
+		spdX = -30;
+	}
+	if(x < 0)
+	{
+		console.log(message);
+		spdX = 30;
+	}
+
+	if(y>500)
+	{
+		console.log(message);
+		spdY = -5;
+	}
+
+if (y<0) {
+	console.log(message);
+spdY = 5;
+}
+
+
+}
+</script>
